@@ -1,0 +1,6 @@
+<%= form_for @message do |f| %>
+  <%= f.hidden_field :chatroom_id %>
+  <p>
+    <%= f.text_field :body %>
+  </p>
+<% end %>

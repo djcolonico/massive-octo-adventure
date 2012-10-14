@@ -1,0 +1,8 @@
+<h1><%= @chatroom.name %></h1>
+
+<%= render :partial => 'message', :collection => @chatroom.messages %>
+
+<%= render :partial => 'message_input' %>
+
+<%= link_to "Exit", chatrooms_path %>
+
