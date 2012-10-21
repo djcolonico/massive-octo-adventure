@@ -1,0 +1,73 @@
+<%= render :partial => 'header' %>
+
+<div id="container">
+<!---->
+
+<div id="channel">
+<h1>Chat Rooms</h1>
+<ul>
+        	<li class="general">General Chat</li>
+            <li class="more" onclick="tree(1);">Architecture, Landscape, VA</li>
+            <ul id="mitem1" class="submenu">
+            	<li class="chat">Architecture</li>
+                <li class="chat">Landscape</li>
+                <li class="chat">Visual Arts</li>
+            </ul>
+            <li class="more" onclick="tree(2);">Arts</li>
+            <ul id="mitem2" class="submenu">
+            	<li class="chat">History</li>
+                <li class="chat">Language</li>
+                <li class="chat">Philosophy</li>
+            </ul>
+            <li class="chat">Business</li>
+            <li class="chat">Education</li>
+            <li class="more" onclick="tree(3);">Engineering, Computing, Maths</li>
+            <ul id="mitem3" class="submenu">
+            	<li class="chat">Engineering</li>
+                <li class="chat">Computing</li>
+                <li class="chat">Mathematics</li>
+            </ul>
+            <li class="chat">Law</li>
+            <li class="more" onclick="tree(4);">Medicine, Health Sciences</li>
+            <ul id="mitem4" class="submenu">
+            	<li class="chat">Medicine</li>
+                <li class="chat">Dentistry</li>
+                <li class="chat">Health Sciences</li>
+            </ul>
+            <li class="more" onclick="tree(5);">Science</li>
+            <ul id="mitem5" class="submenu">
+            	<li class="chat">Anatomy</li>
+                <li class="chat">Biology</li>
+                <li class="chat">Earth and Environment</li>
+                <li class="chat">Psychology</li>
+                <li class="chat">Sport Science</li>
+            </ul>
+        </ul>
+</div>
+
+<div id="msg">
+<div id="output"><h1>Visual Arts</h1></div>
+<div id="input" onclick="focusInput();"><form name="form" onsubmit="return false" autocomplete="off"><input type="text" name="input" class="input"/></form></div>
+</div>
+
+<div id="people">
+<h1>People</h1>
+<ul>
+<li class="mod">$Fox</li>
+<li class="mod">$Lilly</li>
+<li class="friend">puck</li>
+<li class="active">Ilikepears</li>
+<li class="active">ZZ123</li>
+<li class="active">MrChat</li>
+<li class="inactive">XAAAAA</li>
+<li class="inactive">MPotato</li>
+<li class="inactive">xyz</li>
+<li class="inactive">solve4X</li>
+<li class="inactive">Mould</li>
+</ul>
+</div>
+
+<!---->
+</div>
+
+<%= render :partial => 'footer' %>

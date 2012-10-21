@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+.online {
+	list-style-image:url(images/043.png);
+}
+
+.offline {
+	list-style-image:url(images/044.png);
+}
+
+.mod {
+	list-style-image:url(images/092.png);
+}
+
+.friend {
+	list-style-image:url(images/031.png);
+}
+
+.active {
+	list-style-image:url(images/006.png);
+}
+
+.inactive {
+	list-style-image:url(images/005.png);
+}
+
+.more {
+	list-style-image:url(images/129.png);
+}
+
+.chat {
+	list-style-image:url(images/039.png);
+	margin-left:10px;
+}
+
+.general {
+	list-style-image:url(images/045.png);
+}
