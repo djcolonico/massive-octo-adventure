@@ -1,4 +1,6 @@
 class ChatroomsController < ApplicationController
+	#this is a really cool comment right. Well I never. Yes.
+
 	def index
 		  @chatrooms = Chatroom.all
 		  
