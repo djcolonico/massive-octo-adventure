@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :password, :email, :password_confirmation
+  
+  belongs_to :chatroom
 
   validates :name,
   			presence: true,

@@ -4,7 +4,7 @@ def create
     chatroom_id = params[:message].delete(:chatroom_id)
 
     @message = Message.new(params[:message])
-    @message.author = "Bob"
+    @message.author = User.find(session[:user_id]).name
     @message.chatroom_id = chatroom_id
     @message.save
 
