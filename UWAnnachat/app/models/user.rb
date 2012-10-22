@@ -1,24 +1,26 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :username, :password_confirmation
+  attr_accessible :name, :password, :email, :password_confirmation
 
-  validates :password,
+  validates :name,
   			presence: true,
-  			length: { minimum: 6, maximum: 50 }
+  			uniqueness: true,
+			length: { minimum: 3,
+                  maximum: 12,
+                  too_long: "Username must be %{count} characters or less.",
+                  too_short: "Username must be %{count} characters or more." }
 
-  validates :password_confirmation,
-        presence: true
-
-  validates :username,
-  			presence: true,
-  			length: { minimum: 3, maximum: 12 }
-
-  EMAIL_REGEX = /\w+@\w+(.\w+)+/
   validates :email,
   			presence: true,
-  			format: { with: EMAIL_REGEX },
-  			uniqueness: { case_sensitive: false }
+			format: { with: /\w+@\w+(\.\w+)+/,
+			message: "Invalid email address." }
 
-  def valid_password?
-    password == password_cofirmation
-  end
+  validates :password,
+  			length: { minimum: 6,
+                  maximum: 50,
+                  too_long: "Password must be %{count} characters or less.",
+                  too_short: "Password must be %{count} characters or more." }
+
+  validates :password_confirmation,
+  			:presence => true
+  has_secure_password
 end
