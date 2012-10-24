@@ -1,8 +1,6 @@
 <h1>Chatrooms</h1>
 
-<%= button_to 'Log out', logout_path,
-			:method => :delete,
-			:controller => "sessions" %>
+<%= button_to 'Log out', logout_path, :method => :delete, :controller => "sessions" %>
 
 <ul>
   <% @chatrooms.each do |chatroom| %>

@@ -1,1 +1,6 @@
-<span class = "date"> [<%= message.created_at.strftime("%H:%M:%S") %>] </span> <span class = "user"> <%= message.author %> </span>: <%= message.body %><br>
+<span class = "date">
+	[<%= message.created_at.strftime("%H:%M:%S") %>]
+</span>
+<font class = 'message_username' color = '<%= '#' + (message.author[0].ord*13%256).to_s(16) + (message.author[1].ord*13%256).to_s(16) + (message.author[2].ord*13%256).to_s(16) %>' >
+	<%= message.author %>
+</font>: <%= message.body %><br>

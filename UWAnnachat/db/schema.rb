@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20121022052543) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
+    t.integer  "chatroom_id"
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"

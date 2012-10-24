@@ -1,7 +1,6 @@
 class ChatroomsController < ApplicationController
 	def index
 		  @chatrooms = Chatroom.all
-		  
 	end
 
 	def show
@@ -9,6 +8,8 @@ class ChatroomsController < ApplicationController
 		@chatroom = Chatroom.find(params[:id])
 	    @message = Message.new
 		@message.chatroom_id = @chatroom.id
+		@user = User.find(session[:user_id])
+		@user.update_attribute(:chatroom_id, @chatroom.id)
 	end
 
 	def new
@@ -16,9 +17,9 @@ class ChatroomsController < ApplicationController
   end
 
    def create
-			@chatroom = Chatroom.new(:name => params[:chatroom][:name])
-    @chatroom.save
-    redirect_to chatroom_path(@chatroom)
+		@chatroom = Chatroom.new(:name => params[:chatroom][:name])
+    	@chatroom.save
+    	redirect_to chatroom_path(@chatroom)
   end
   
 end

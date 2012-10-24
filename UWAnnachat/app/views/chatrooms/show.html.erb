@@ -121,9 +121,8 @@ input:focus {
 	outline: none;
 }
 
-.user {
+.message_username {
 	font-weight: bold;
-	color: #FF8080;
 }
 .date {
 	color: #999;
@@ -131,6 +130,10 @@ input:focus {
 
 .submenu {
 	display:none;
+}
+
+.active_username {
+	font-weight: bold;
 }
 </style>
 </head>
@@ -147,7 +150,7 @@ input:focus {
     </ul>
 </div>
 
-<div id="showuser">Welcome, Bob | Account | Log Out</div>
+<div id="showuser">Welcome, <%= @user.name %> | Account | <%= link_to "Log Out", logout_path, :method => :delete, :controller => "sessions" %></div>
 <div id="title">uniChat</div>
 <div id="sub">Browser chat for students of UWA</div>
 <a class="button" href="chat.html">Enter Chat</a>
@@ -184,17 +187,13 @@ input:focus {
 <div id="people">
 <h1>People</h1>
 <ul>
-<li class="mod">$Fox</li>
-<li class="mod">$Lilly</li>
-<li class="friend">puck</li>
-<li class="active">Ilikepears</li>
-<li class="active">ZZ123</li>
-<li class="active">MrChat</li>
-<li class="inactive">XAAAAA</li>
-<li class="inactive">MPotato</li>
-<li class="inactive">xyz</li>
-<li class="inactive">solve4X</li>
-<li class="inactive">Mould</li>
+<% @chatroom.users.each do |user| %>
+	<li class = "active" > 
+		<font class = "active_username" color = '<%= '#' + (user.name[0].ord*13%256).to_s(16) + (user.name[1].ord*13%256).to_s(16) + (user.name[2].ord*13%256).to_s(16) %>' >
+			<%= user.name %>
+		</font>
+	</li>
+<% end %>
 </ul>
 </div>
 

@@ -11,11 +11,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to chatrooms_url
     else
-	  redirect_to login_url, alert:"Incorrect username and password combination"
+	    redirect_to login_url, alert:"Incorrect username and password combination"
     end
   end
 
   def destroy
+    User.find(session[:user_id]).update_attribute(:chatroom_id, nil)
   	session[:user_id] = nil
     redirect_to login_url, notice: "Logged out"
   end
