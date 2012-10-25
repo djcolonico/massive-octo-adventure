@@ -1,24 +1,52 @@
-<h1>Log in</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-<div class="depot_form">
-		<% if flash[:alert] %>
-			<p id="notice"><%= flash[:alert] %></p>
-		<% end %>
+<%= render "layouts/header" %>
+<style>
+#loginbox {
+	width: 400px; 
+	margin:auto; 
+	margin-top: 50px;
+	line-height: 25px;
+	background-color: #FFF;
+
+	box-shadow: 0 0 8px #A7938B;
+	-webkit-box-shadow: 0 0 8px #A7938B;
+	-moz-box-shadow: 0 0 8px #A7938B;
+}
+</style>
+<div id="loginbox">
+
+<h1>Login</h1>
+		
 	<%= form_tag do %>
-		<fieldset>
-			<legend>Please Log In</legend>
-			<div>
-				<label for="name">Name:</label>
-				<%= text_field_tag :name, params[:name] %>
-			</div>
-			<div>
-				<label for="password">Password:</label>
-				<%= password_field_tag :password, params[:password] %>
-			</div>
-			<div>
-				<%= submit_tag "Login" %>
-			</div>
-		</fieldset>
+
+		<table cellpadding = "5px" style="margin-left: 10%;">
+			<tr>
+				<td style="color: red" colspan = "2">
+					<% if flash[:alert] %>
+						<%= flash[:alert] %>
+					<% end %>
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td width="100px"><label for="name">Name:</label></td>
+				<td><%= text_field_tag :name, params[:name] %></td>
+			</tr>
+			<tr>
+				<td><label for="password">Password:</label></td>
+				<td><%= password_field_tag :password, params[:password] %></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center"><%= submit_tag "Login" %></td>
+			</tr>
+		</table>
+				
+				
+
+				
+				<br />
+				
 	<% end %>
 </div>
-<%= link_to 'Sign up', new_user_path %>
+
+</div>
+<%= render "layouts/footer" %>
