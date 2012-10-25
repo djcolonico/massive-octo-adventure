@@ -17,7 +17,10 @@
 </div>
 
 <div id="msg">
-<div id="output"><h1><%= @chatroom.name %></h1>
+<h1 style="	box-shadow:0 0 8px #A7938B;
+	-webkit-box-shadow:0 0 8px #A7938B;
+	-moz-box-shadow:0 0 8px #A7938B;"><%= @chatroom.name %></h1>
+<div id="output">
 <p>
 <%= render :partial => 'message', :collection => @chatroom.messages %>
 </p>

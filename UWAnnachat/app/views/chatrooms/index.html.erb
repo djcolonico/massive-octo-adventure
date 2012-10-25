@@ -1,13 +1,45 @@
-<h1>Chatrooms</h1>
 
-<%= button_to 'Log out', logout_path, :method => :delete, :controller => "sessions" %>
+<%= render "layouts/header" %>
+<div id="container">
+<!---->
+
+<div id="channel">
+<h1>Chat Rooms &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "+", new_chatroom_path, :class => "new_chatroom" %></h1>
 
 <ul>
   <% @chatrooms.each do |chatroom| %>
-    <li>
-      <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <li class="chat">
+      <%= link_to chatroom.name, {:id => chatroom.id} %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "New Chatroom", new_chatroom_path, :class => "new_chatroom" %>
+
+</div>
+
+<div id="msg">
+<h1 style="	box-shadow:0 0 8px #A7938B;
+	-webkit-box-shadow:0 0 8px #A7938B;
+	-moz-box-shadow:0 0 8px #A7938B;">Select a Chatroom</h1>
+<div id="output">
+<p>
+	Select a chatroom on the sidebar or <%= link_to "create your own.", new_chatroom_path, :class => "new_chatroom" %>
+</p>
+<!--<%= link_to "Exit", chatrooms_path %>-->
+
+
+</div>
+<div id="input" onclick="focusInput();"></div>
+</div>
+
+<div id="people">
+<h1>People</h1>
+<ul>
+
+</ul>
+</div>
+
+<!---->
+</div>
+
+<%= render "layouts/footer" %>

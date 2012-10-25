@@ -39,6 +39,7 @@ h1 {
 	font-weight: normal;
 	text-align:center;
 	text-shadow: #999 0px 1px 0px;
+	z-index:-1;
 }
 
 h1 a{
@@ -81,6 +82,7 @@ ul {
 }
 
 #output {
+	margin-top: 21px;
 	background-color:#FFF;
 	width: 659px;
 	float:left;
@@ -88,9 +90,16 @@ ul {
 	bottom: 47px;
 	top:10px;
 	box-shadow:0 0 8px #A7938B;
-	-webkit-box-shadow:0 0 8px #A7938B;
+	-webkit-box-shadow:10 0 8px #A7938B;
 	-moz-box-shadow:0 0 8px #A7938B;
-	overflow: auto;
+	overflow-y: auto;
+	white-space:normal;
+}
+
+#output p {
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #input {

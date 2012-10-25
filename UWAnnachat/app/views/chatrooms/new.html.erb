@@ -1,5 +1,15 @@
-<h1>New Chatroom</h1>
 
+<%= render "layouts/header" %>
+<div id="container" style="margin-left:-400px">
+<!---->
+
+
+<div id="msg">
+<h1 style="	box-shadow:0 0 8px #A7938B;
+	-webkit-box-shadow:0 0 8px #A7938B;
+	-moz-box-shadow:0 0 8px #A7938B;">Create A New Chatroom</h1>
+<div id="output" style="text-align:center;">
+<p>
 <%= form_for(@chatroom) do |f| %>
   <p>
     <%= f.label :name %><br />
@@ -9,3 +19,14 @@
     <%= f.submit %>
   </p>
 <% end %>
+</p>
+<!--<%= link_to "Exit", chatrooms_path %>-->
+
+
+</div>
+</div>
+
+<!---->
+</div>
+
+<%= render "layouts/footer" %>
