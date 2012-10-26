@@ -22,11 +22,8 @@
 	-moz-box-shadow:0 0 8px #A7938B;"><%= @chatroom.name %></h1>
 <div id="output">
 <p>
-<%= render :partial => 'message', :collection => @chatroom.messages %>
+	<%= render :partial => 'message', :collection => @chatroom.messages %>
 </p>
-<!--<%= link_to "Exit", chatrooms_path %>-->
-
-
 </div>
 <div id="input" onclick="focusInput();"><%= render :partial => 'message_input' %></div>
 </div>
@@ -46,5 +43,12 @@
 
 <!---->
 </div>
+<script>
+setInterval( function() {
+  $("#people").load(location.href+" #people>*", "");
+  $("#output").load(location.href+" #output>*", "");
+}, 2500);
 
+$('#msgform').trigger('onsubmit')(document.getElementById('msgform').value = 'ARARAR');
+</script>
 <%= render "layouts/footer" %>
