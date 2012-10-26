@@ -26,8 +26,9 @@
 <div id="title">uniChat</div>
 <div id="sub">Browser chat for students of UWA</div>
 <a class="button" href="/chatrooms">Enter Chat</a>
-<div id="showuser"> 
-	<% if defined?(@user.name)%>
+<div id="showuser">
+	<% if User.find_by_id(session[:user_id]) %>
+		<% @user = User.find(session[:user_id]) %>
 		<% if @user.name != nil %>
 			Welcome, <%= @user.name %> | <%= link_to "Log Out", logout_path, :method => :delete, :controller => "sessions" %>
 		<% else %>
