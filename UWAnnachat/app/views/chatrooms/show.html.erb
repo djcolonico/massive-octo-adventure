@@ -25,7 +25,10 @@
 	<%= render :partial => 'message', :collection => @chatroom.messages %>
 </p>
 </div>
-<div id="input" onclick="focusInput();"><%= render :partial => 'message_input' %></div>
+<div id="input" onclick="focusInput();">
+	<%= render :partial => 'message_input' %>
+</div>
+
 </div>
 
 <div id="people">
@@ -33,7 +36,7 @@
 <ul>
 <% @chatroom.users.each do |user| %>
 	<li class = "active" > 
-		<font class = "active_username" color = '<%= '#' + (user.name[0].ord*13%256).to_s(16) + (user.name[1].ord*13%256).to_s(16) + (user.name[2].ord*13%256).to_s(16) %>' >
+		<font class = "active_user" color = '<%= '#' + (user.name[0].ord*13%256).to_s(16) + (user.name[1].ord*13%256).to_s(16) + (user.name[2].ord*13%256).to_s(16) %>' >
 			<%= user.name %>
 		</font>
 	</li>
@@ -45,9 +48,13 @@
 </div>
 <script>
 setInterval( function() {
+
   $("#people").load(location.href+" #people>*", "");
-  $("#output").load(location.href+" #output>*", "");
-  document.getElementById("output").scrollTop = document.getElementById("output").scrollHeight;
+
+  var out = $("#output");
+  out.load(location.href+" #output>*", "");
+  out.scrollTop(out.outerHeight());
+  
 },  1000);
 </script>
 <%= render "layouts/footer" %>

@@ -1,5 +1,6 @@
 
 <%= form_for @message, :remote => true do |f| %>
   <%= f.hidden_field :chatroom_id %>
-    <%= f.text_field :body, :class => 'input', :id => 'msgform' %>
+  <%= f.text_field :author, :class => 'input', :id => 'msgform', :autocomplete => :off, :onkeydown => "document.getElementById('msghidden').value = this.value; if(event.keyCode == 13) this.value = '';" %>
+  <%= f.hidden_field :body, :id => 'msghidden' %>
 <% end %>

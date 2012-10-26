@@ -7,7 +7,6 @@ def create
     @message.author = User.find(session[:user_id]).name
     @message.chatroom_id = chatroom_id
     @message.save
-    redirect_to chatroom_path(@message.chatroom)
   end
   
 end
