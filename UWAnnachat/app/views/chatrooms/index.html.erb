@@ -8,8 +8,8 @@
 
 <ul>
   <% @chatrooms.each do |chatroom| %>
-    <li class="chat">
-      <%= link_to chatroom.name, {:id => chatroom.id} %>
+    <li>
+      <%= link_to chatroom.name, chatroom_path(chatroom) %>
     </li>
   <% end %>
 </ul>

@@ -41,13 +41,13 @@
 </ul>
 </div>
 
-<!---->
+<!----> 
 </div>
 <script>
 setInterval( function() {
   $("#people").load(location.href+" #people>*", "");
   $("#output").load(location.href+" #output>*", "");
-}, 2500);
-
+  document.getElementById("output").scrollTop = document.getElementById("output").scrollHeight;
+},  1000);
 </script>
 <%= render "layouts/footer" %>

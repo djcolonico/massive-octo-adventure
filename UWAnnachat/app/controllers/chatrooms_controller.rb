@@ -1,6 +1,8 @@
 class ChatroomsController < ApplicationController
 	def index
 		  @chatrooms = Chatroom.all
+		  @user = User.find(session[:user_id])
+		  @user.update_attribute(:chatroom_id,nil)
 	end
 
 	def show
