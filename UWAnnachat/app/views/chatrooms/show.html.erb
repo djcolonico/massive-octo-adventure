@@ -20,16 +20,16 @@
 </div>
 
 <div id="msg">
-<h1 style="	box-shadow:0 0 8px #A7938B;
-	-webkit-box-shadow:0 0 8px #A7938B;
-	-moz-box-shadow:0 0 8px #A7938B;"><%= @chatroom.name %></h1>
+<h1 style=" box-shadow:0 0 8px #A7938B;
+  -webkit-box-shadow:0 0 8px #A7938B;
+  -moz-box-shadow:0 0 8px #A7938B;"><%= @chatroom.name %></h1>
 <div id="output">
 <p>
-	<%= render :partial => 'message', :collection => @chatroom.messages %>
+  <%= render :partial => 'message', :collection => @chatroom.messages %>
 </p>
 </div>
 <div id="input" onclick="focusInput();">
-	<%= render :partial => 'message_input' %>
+  <%= render :partial => 'message_input' %>
 </div>
 
 </div>
@@ -38,11 +38,11 @@
 <h1>People</h1>
 <ul>
 <% @chatroom.users.each do |user| %>
-	<li class = "active" > 
-		<font class = "active_user" color = '<%= '#' + (user.name[0].ord*13%256).to_s(16) + (user.name[1].ord*13%256).to_s(16) + (user.name[2].ord*13%256).to_s(16) %>' >
-			<%= user.name %>
-		</font>
-	</li>
+  <li class = "active" > 
+    <font class = "active_user" color = '<%= '#' + (user.name[0].ord*13%256).to_s(16) + (user.name[1].ord*13%256).to_s(16) + (user.name[2].ord*13%256).to_s(16) %>' >
+      <%= user.name %>
+    </font>
+  </li>
 <% end %>
 </ul>
 </div>
@@ -53,10 +53,11 @@
 setInterval( function() {
 
   $("#people").load(location.href+" #people>*", "");
+  $("#output").load(location.href+" #output>*", "");
+  
+  var out = document.getElementById("output");
 
-  var out = $("#output");
-  out.load(location.href+" #output>*", "");
-  out.scrollTop(out.outerHeight());
+  out.scrollTop = out.scrollHeight;
   
 },  1000);
 </script>
