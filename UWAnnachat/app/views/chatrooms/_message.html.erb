@@ -3,4 +3,24 @@
 </span>
 <font class = 'user' color = '<%= '#' + (message.author[0].ord*13%256).to_s(16) + (message.author[1].ord*13%256).to_s(16) + (message.author[2].ord*13%256).to_s(16) %>' >
 	<%= message.author %>
-</font>: <%= message.body %><br>
+</font>: 
+
+<% url_reg = /\bhttps?:\S*/ %>
+<% img_reg = /\.(png|jpg|jpeg|bmp|gif|tif)\b/ %>
+<% msg = message.body %>
+<% if msg =~ url_reg %>
+	<% between_url = msg.split(url_reg) %>
+	<% i = 0 %>
+	<% msg.scan(url_reg) do |currrent_match| %>
+		<%= between_url[i] %>
+		<% if currrent_match =~ img_reg %>
+			<a href = '<%= currrent_match %>' ><img src = '<%= currrent_match %>' style = "height:20px; position:absolute;" /></a>
+		<% else %>
+			<a href = '<%= currrent_match %>' ><u><%= currrent_match %></u></a>
+		<% end %>
+		<% i = i + 1 %>
+	<% end %>
+	<% between_url[i] %><br>
+<% else %>
+	<%= msg %><br>
+<% end %>
