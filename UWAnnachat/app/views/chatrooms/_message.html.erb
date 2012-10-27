@@ -6,10 +6,11 @@
 </font>
 <span class = "text">: 
 <% url_regex = /\bhttps?:\S*/ %>
-<% image_regex = /\.(png|jpg|jpeg|bmp|gif|tif)\b/ %>
+<% image_regex = /\.(png|jpg|jpeg|bmp|gif|tif|svg)\b/ %>
 <% audio_regex = /\.(mp3|m4a|ogg|wav)\b/ %>
-<% video_regex = /\.(mp4|ogv|webm|flv|avi|tif|mpeg)\b/ %>
-<% youtube_regex = /\bhttp:\/\/www.youtube.com\/watch\?v=\S*/ %>
+<% video_regex = /\.(mp4|ogv|webm|flv|avi|mpeg)\b/ %>
+<% youtube_regex = /\bhttp:\/\/www.youtube.com\/watch\?v=/ %>
+<% youtube_id_regex = /\?v=\S*/ %>
 
 <% if message.body =~ url_regex %>
 	<% between_url = message.body.split(url_regex) %>
@@ -18,34 +19,34 @@
 		<%= between_url[i] %>
 		<% if currrent_match =~ image_regex %>
 
-			<a href = '<%= currrent_match %>' ><img class = 'inline_image' src = '<%= currrent_match %>' /></a>
+			<a href = '<%= currrent_match %>' ><img  class = 'inline_image' height="180" src = '<%= currrent_match %>' /></a>
 
 		<% elsif currrent_match =~ audio_regex %>
 
-			<audio class = 'inline_audio' loop='false' controls autobuffer>
+			<audio class = 'inline_audio' loop='false' controls autoplay >
 				<source src='<%= currrent_match %>' />
 				<b>Your browser does not support this audio format.</b>
 			</audio>
 
 		<% elsif currrent_match =~ video_regex %>
 
-			<video class = 'inline_video'>
+			<video class = 'inline_video' autoplay >
 				<source src='<%= currrent_match %>' />
 				<b>Your browser does not support this video format.</b>
 			</video>
 
 		<% elsif currrent_match =~ youtube_regex %>
 
-			<iframe class = 'inline_youtube' src='<%= currrent_match %>' frameborder="0" allowfullscreen></iframe>
-
+			<iframe class = "inline_youtube" src = "<%= 'http://www.youtube.com/embed/' + currrent_match.scan(youtube_id_regex)[0].sub(/\?v=/,'').sub(/&\S*/,'') + '?feature=player_detailpage&autoplay=1' %>" frameborder="0" allowfullscreen ></iframe>
+				
 		<% else %>
 
-			<a class = 'inline_url' href = '<%= currrent_match %>' ><u><%= currrent_match %></u></a>
+			<a class = 'inline_url' href = '<%= currrent_match %>' ><%= currrent_match %></a>
 
 		<% end %>
+		<%= between_url[i] %>
 		<% i = i + 1 %>
-	<% end %>
-	<% between_url[i] %><br>
+	<% end %><br>
 <% else %>
 	<%= message.body %><br>
 <% end %>

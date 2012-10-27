@@ -132,6 +132,13 @@ input:focus {
 	outline: none;
 }
 
+#refresh_check {
+	float: left;
+}
+#refresh_text {
+	float: left;
+	font-size: 8px;
+}
 .user {
 	font-weight: bold;
 }
@@ -144,4 +151,16 @@ input:focus {
 
 .date {
 	color: #666;
+}
+#inline_youtube {
+	width: 320px;
+	height: 180px;
+}
+#inline_video {
+	width: 320px;
+	height: 180px;
+}
+#inline_url {
+	text-decoration: underline;
+	font-weight: bolder;
 }

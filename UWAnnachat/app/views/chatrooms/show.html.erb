@@ -8,7 +8,7 @@
 <ul>
 <li><%= link_to "+ Create New", new_chatroom_path, :class => "new_chatroom" %></li>
 </ul>
-<ul>
+<ul id="rooms">
   <% @chatrooms.each do |chatroom| %>
     <li class="chat">
       <%= link_to chatroom.name, {:id => chatroom.id} %>
@@ -20,9 +20,15 @@
 </div>
 
 <div id="msg">
+<div id="mes_head">
+<input id="refresh_check" type="checkbox" onclick="refreshChat = this.checked" checked ><span id="refresh_text">Auto-update chat</span></input>
 <h1 style=" box-shadow:0 0 8px #A7938B;
   -webkit-box-shadow:0 0 8px #A7938B;
-  -moz-box-shadow:0 0 8px #A7938B;"><%= @chatroom.name %></h1>
+  -moz-box-shadow:0 0 8px #A7938B;">
+  
+  <%= @chatroom.name %>
+</h1>
+</div>
 <div id="output">
 <p>
   <%= render :partial => 'message', :collection => @chatroom.messages %>
@@ -50,15 +56,17 @@
 <!----> 
 </div>
 <script>
+var refreshChat = true;
+
 setInterval( function() {
-
+  $("#rooms").load(location.href+" #rooms>*", "");
   $("#people").load(location.href+" #people>*", "");
-  $("#output").load(location.href+" #output>*", "");
-  
-  var out = document.getElementById("output");
 
-  out.scrollTop = out.scrollHeight;
-  
+  if (refreshChat) {
+    $("#output").load(location.href+" #output>*", "");
+    var out = document.getElementById("output");
+    out.scrollTop = out.scrollHeight;
+  }
 },  1000);
 </script>
 <%= render "layouts/footer" %>
