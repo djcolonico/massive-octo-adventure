@@ -29,7 +29,7 @@
   <%= @chatroom.name %>
 </h1>
 </div>
-<div id="output">
+<div id="output" onmouseover="refreshChat = false;" onmouseout="refreshChat = true;" >
 <p>
   <%= render :partial => 'message', :collection => @chatroom.messages %>
 </p>
