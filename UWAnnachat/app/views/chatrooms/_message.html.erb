@@ -23,14 +23,14 @@
 
 		<% elsif currrent_match =~ audio_regex %>
 
-			<audio class = 'inline_audio' loop='false' controls autoplay >
+			<audio class = 'inline_audio' loop='false' controls >
 				<source src='<%= currrent_match %>' />
 				<b>Your browser does not support this audio format.</b>
 			</audio>
 
 		<% elsif currrent_match =~ video_regex %>
 
-			<video class = 'inline_video' autoplay >
+			<video class = 'inline_video' >
 				<source src='<%= currrent_match %>' />
 				<b>Your browser does not support this video format.</b>
 			</video>
