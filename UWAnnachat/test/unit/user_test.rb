@@ -133,7 +133,6 @@ class UserTest < ActiveSupport::TestCase
           :email => "joe@email.com",
           :password => "this_can_not_be_greater_than_fifty_characters_error",
           :password_confirmation => "this_can_not_be_greater_than_fifty_characters_error")
-    puts user.password.length
     assert user.invalid?
     assert user.errors[:password].any?
   end
