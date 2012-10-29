@@ -11,6 +11,7 @@ UWAnnachat::Application.routes.draw do
   	get "about" => :about
   	get "sitemap" => :sitemap
   	get "contact" => :contact
+    get "ref" => :ref
   end
 
   resources :users
