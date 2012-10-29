@@ -1,15 +1,17 @@
 # populate the test db before tests are run
+# can't store password, or password_confirmation because they are not
+# actually stored in the database
 some_user:
   name: a_name_that_wont_conflict_with_others
   email: some@email.com
   password_digest: 
 
 one:
-  name: user_name_one
+  name: user_name
   email: user@email.com
   password_digest:
 
 two:
-  name: user_name_two
+  name: user_name
   email: user_two@email.com
   password_digest:

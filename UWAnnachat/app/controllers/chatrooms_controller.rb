@@ -11,19 +11,17 @@ class ChatroomsController < ApplicationController
 	    @message = Message.new
 		@message.chatroom_id = @chatroom.id
 		@user = User.find(session[:user_id])
-		puts "GOT HERE FIRST"
 		@user.update_attribute(:chatroom_id, @chatroom.id)
-		puts "GOT HERE"
 	end
 
 	def new
 		@chatroom = Chatroom.new
-  end
+  	end
 
-   def create
+    def create
 		@chatroom = Chatroom.new(:name => params[:chatroom][:name])
     	@chatroom.save
     	redirect_to chatroom_path(@chatroom)
-  end
+  	end
   
 end
