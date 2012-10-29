@@ -37,7 +37,7 @@
 
 		<% elsif currrent_match =~ youtube_regex %>
 
-			<iframe class = "inline_youtube" src = "<%= 'http://www.youtube.com/embed/' + currrent_match.scan(youtube_id_regex)[0].sub(/\?v=/,'').sub(/&\S*/,'') + '?feature=player_detailpage&autoplay=1' %>" frameborder="0" allowfullscreen ></iframe>
+			<iframe class = "inline_youtube" src = "<%= 'http://www.youtube.com/embed/' + currrent_match.scan(youtube_id_regex)[0].sub(/\?v=/,'').sub(/&\S*/,'') + '?feature=player_detailpage' %>" frameborder="0" allowfullscreen ></iframe>
 				
 		<% else %>
 
